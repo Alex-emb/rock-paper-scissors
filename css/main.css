@@ -65,9 +65,14 @@ Global Styles
 
 body {
     font-family: var(--ff-primary_2p);
+    background: var(--clr-black-1);
     color: var(--clr-orange-5);
     line-height: 1.5;
     font-size: 0.875rem;
+    background: url("../images/pexels-alex-andrews-5086477.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1,
@@ -110,7 +115,7 @@ p {
     }
 
     h3 {
-        font-size: 1.75rem;
+        font-size: 1.4rem;
     }
 
     h4 {
@@ -130,11 +135,10 @@ p {
 }
 
 /*  global classes */
-
 .btn{
     display: block;
-    background: var(--clr-black-1);
-    border: 1px solid red;
+    background: transparent;
+    border: 1px solid var(--clr-white);
     color: var(--clr-white);
     padding: 0.5rem;
     cursor: pointer;
@@ -144,20 +148,20 @@ p {
 }
 
 
-.btn:active {
+.btn-player:active {
     color: var(--clr-white);
     border: 1px solid var(--clr-white);
     transition: all 0s linear;
 }
 
-.btn:focus {
-    color: var(--clr-orange-8);
-    border: 1px solid var(--clr-orange-8);
-}
-
-.btn:hover {
+.btn-player:focus {
     color: var(--clr-orange-6);
     border: 1px solid var(--clr-orange-6);
+}
+
+.btn-player:hover {
+    color: var(--clr-orange-4);
+    border: 1px solid var(--clr-orange-4);
 }
 
 
@@ -168,20 +172,23 @@ p {
 
 
 .section {
+    display: grid;
+    justify-content: center;
+    align-content: center;
     padding: 1rem 0;
-    border: 2px solid red;
+    width: 100%;
+    min-height: 80vh;
 }
 
 .section-center{
     width: 90vw;
     margin: 0 auto;
-    max-width: 1170px;
-    border: 2px solid red;
+    max-width: 1500px;
 }
 
 @media screen and (min-width:992px) {
     .section-center {
-        width: 95vw;
+        width: 96vw;
     }
 }
 
@@ -194,13 +201,23 @@ Header
  */
 
 .header{
-    background: var(--clr-black-1);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+    background: url("../images/pexels-alex-conchillos-3648850.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 19vh;
 }
 
 .header h1{
     text-align: center;
-    margin-bottom: 0;
     padding: 2rem 0;
+    margin-bottom: 0;
+    width: 100%;
 }
 
 /* 
@@ -211,7 +228,7 @@ Underline
 
 .underline{
     width: 100%;
-    height: 1vh;
+    height: 0.7rem;
     background: var(--clr-orange-5);
 }
 
@@ -221,15 +238,9 @@ Game
 =================
 */
 
-.section-game {
-    display: grid;
-    grid-template-rows: auto auto;
-}
-
 .player {
     width: 100%;
     text-align: center;
-    border: 1px solid black;
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto auto;
@@ -239,6 +250,10 @@ Game
 
 .player-title {
     grid-area: 1/1/2/4;
+}
+
+.player-score{
+    grid-area: 2/2/3/3;
 }
 
 .fist-player {
@@ -258,15 +273,18 @@ Game
 .computer {
     width: 100%;
     text-align: center;
-    border: 1px solid green;
     display: grid;
     grid-template-columns: auto auto auto;
-    grid-template-rows: auto auto auto;
+    grid-template-rows:  auto auto auto;
     justify-items: center;
 }
 
 .computer-title {
     grid-area: 1/1/2/4;
+}
+
+.computer-score {
+    grid-area: 2/2/3/3;
 }
 
 .fist-computer {
@@ -284,13 +302,67 @@ Game
 }
 
 
+
+
 @media screen  and (min-width: 768px){
+
+    .section-center {
+        width: 95vw;
+    }
+
+    .btn{
+        font-size: 5rem;
+    }
+
     .section-game {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        justify-items: space-between;
+        justify-items: center;
+        align-items: center;
+        column-gap: 4rem;
     }
     .player{
         margin: 0;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto auto;
+        justify-items: center;
+        column-gap: 1rem;
     }
+
+    .player-score {
+        grid-area: 2/2/3/3;
+    }
+
+    .fist-player {
+        grid-area: 3/1/4/2;
+        margin-bottom: 0;
+    }
+
+    .paper-player {
+        grid-area: 3/3/4/4;
+        margin-bottom: 0;
+    }
+    
+    .computer {
+        margin: 0;
+        grid-template-columns: auto auto auto;
+        grid-template-rows: auto auto;
+        justify-items: center;
+        column-gap: 1rem;
+    }
+
+    .computer-score {
+        grid-area: 2/2/3/3;
+    }
+
+    .fist-computer {
+        grid-area: 3/1/4/2;
+        margin-bottom: 0;
+    }
+
+    .paper-computer {
+        grid-area: 3/3/4/4;
+        margin-bottom: 0;
+    }
+
 }

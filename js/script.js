@@ -13,6 +13,14 @@ function getComputerChoice(){
     return choice;
 }
 
+function checkPlayerChoice(choice){
+    if (choice == 'Rock' || choice == 'Paper' || choice == 'Scissors'){
+        return false;
+    }
+    else{
+        return true;
+    }
+}
 
 function playRound(playerSelection, computerSelection) {
     let playerSelectionInsensitive = capitalizeFirstLetter(playerSelection);
@@ -38,15 +46,6 @@ function playRound(playerSelection, computerSelection) {
     }
     else if(playerSelectionInsensitive == 'Scissors' && computerSelectionInsensitive == 'Paper'){
         return(`You win! ${playerSelectionInsensitive} beats ${computerSelectionInsensitive}`);    
-    }
-}
-
-function checkPlayerChoice(choice){
-    if (choice == 'Rock' || choice == 'Paper' || choice == 'Scissors'){
-        return false;
-    }
-    else{
-        return true;
     }
 }
 
@@ -91,10 +90,100 @@ function game(){
     else{
         console.log('It\'s a tie!!!')
     }
+}
 
+// game();
+
+
+
+
+///////////////////////////////////////////////////
+///////////////////////////////////////////////////
+
+function gameRound(playerSelection, computerSelection) {
+
+    if(playerSelection == computerSelection){
+        return 0;
+    }
+    else if(playerSelection == 'rock' && computerSelection == 'paper'){
+        return 2;    
+    }
+    else if(playerSelection == 'rock' && computerSelection == 'scissors'){
+        return 1;    
+    }
+    else if(playerSelection == 'paper' && computerSelection == 'rock'){
+        return 1;    
+    }
+    else if(playerSelection == 'paper' && computerSelection == 'scissors'){
+        return 2;    
+    }
+    else if(playerSelection == 'scissors' && computerSelection == 'rock'){
+        return 2;    
+    }
+    else if(playerSelection == 'scissors' && computerSelection == 'paper'){
+        return 1;    
+    }
+}
+
+var playerPoints = 0;
+var computerPoints = 0;
+
+var previousComputerChoice  = document.getElementById("rockComputer");
+
+
+function playerChoiceFunction(playerChoice){
+    let computerChoice = getComputerChoice();
+    let rockBtn;
+    let paperBtn;
+    let scissorsBtn;
+    let winner;
+
+    console.log(playerChoice.id);
+
+
+    //return to white before styling again
+    previousComputerChoice.style.borderColor = "var(--clr-white)";
+    previousComputerChoice.style.color = "var(--clr-white)";
+
+    if (computerChoice == 'rock'){
+        rockBtn = document.getElementById("rockComputer");
+        rockBtn.style.borderColor = "var(--clr-orange-6)";
+        rockBtn.style.color = "var(--clr-orange-6)";
+
+        previousComputerChoice = rockBtn;
+
+    }else if (computerChoice == 'paper'){
+        paperBtn = document.getElementById("paperComputer");
+        paperBtn.style.borderColor = "var(--clr-orange-6)";
+        paperBtn.style.color = "var(--clr-orange-6)";
+
+        previousComputerChoice = paperBtn;
+
+    }if (computerChoice == 'scissors'){
+        scissorsBtn = document.getElementById("scissorsComputer");
+        scissorsBtn.style.borderColor = "var(--clr-orange-6)";
+        scissorsBtn.style.color = "var(--clr-orange-6)";
+
+        previousComputerChoice = scissorsBtn;
+    }
+
+    winner = gameRound(playerChoice.id, computerChoice);
+
+    if (winner == 1){
+        playerPoints = playerPoints + 1;
+        document.getElementById("player-score").innerHTML = playerPoints.toString();
+    }
+    else if (winner == 2){
+        computerPoints = computerPoints + 1;
+        document.getElementById("computer-score").innerHTML = computerPoints.toString();
+    }
+
+    if (playerPoints == 5 || computerPoints == 5){
+        playerPoints = 0;
+        computerPoints = 0;
+    }
 
 
 }
 
-// game();
 

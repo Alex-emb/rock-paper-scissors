@@ -11,41 +11,53 @@
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" id="header">
         <h1>rock paper scissors</h1>
     </header>
 
-    <div class="underline"></div>
+    <div class="underline" id="underline"></div>
 
-    <section class="section">
+    <section class="section" id="section">
         <div class="section-center section-game">
             <div class="player">
                 <h3 class="player-title"> Player Move</h3>
-                <button type="button" class="btn fist-player">
+                <h2 class="player-score" id="player-score">0</h2>
+                <button type="button" class="btn btn-player fist-player" id="rock" onclick="playerChoiceFunction(this)">
                     <i class="fa-solid fa-hand-fist fa-fw"></i>
                 </button>
-                <button type="button" class="btn scissors-player">
+                <button type="button" class="btn btn-player scissors-player" id="scissors" onclick="playerChoiceFunction(this)">
                     <i class="fa-solid fa-hand-scissors fa-fw"></i>
                 </button>
-                <button type="button" class="btn paper-player">
+                <button type="button" class="btn btn-player paper-player" id="paper" onclick="playerChoiceFunction(this)">
                     <i class="fa-solid fa-hand fa-fw"></i>
                 </button>
             </div>
 
             <div class="computer">
                 <h3 class="computer-title"> Computer Move</h3>
-                <button type="button" class="btn fist-computer">
+                <h2 class="computer-score" id="computer-score">0</h2>
+                <button type="button" class="btn btn-computer fist-computer" id="rockComputer">
                     <i class="fa-solid fa-hand-fist fa-fw"></i>
                 </button>
-                <button type="button" class="btn scissors-computer">
+                <button type="button" class="btn btn-computer scissors-computer" id="scissorsComputer">
                     <i class="fa-solid fa-hand-scissors fa-fw"></i>
                 </button>
-                <button type="button" class="btn paper-computer">
+                <button type="button" class="btn btn-computer paper-computer" id="paperComputer">
                     <i class="fa-solid fa-hand fa-fw"></i>
                 </button>
             </div>
         </div>
     </section>
+
+    <!-- <p id="demo"></p> -->
+    
+    <!-- <script>
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+
+        var x = document.getElementById("demo");
+        x.innerHTML = "Browser width: " + w + ", height: " + h + ".";
+    </script> -->
     <script src="./js/script.js"></script>
 </body>
 </html>
