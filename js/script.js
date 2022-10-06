@@ -129,6 +129,35 @@ var playerPoints = 0;
 var computerPoints = 0;
 
 var previousComputerChoice  = document.getElementById("rockComputer");
+var message = document.getElementById("floatMessage");
+var winner_score = document.getElementById("score-title");
+var winner_title = document.getElementById("winner-title");
+
+var continue_game = 0;
+
+const restart = document.querySelector('.answer-yes-btn')
+const stop = document.querySelector('.answer-no-btn')
+
+const promise = new Promise((resolve, reject) => {
+    restart.addEventListener('click', resolve)
+    stop.addEventListener('click', reject)
+})
+
+function onRestart () {
+    continue_game = 1;
+}
+
+function onStop () {
+    continue_game = 2;
+}
+
+async function waitClick () {
+    return await promise
+        .then((ev) => {
+            onRestart ()
+        })
+    .catch(() => onStop())
+}
 
 
 function playerChoiceFunction(playerChoice){
@@ -178,12 +207,36 @@ function playerChoiceFunction(playerChoice){
         document.getElementById("computer-score").innerHTML = computerPoints.toString();
     }
 
+    console.log("player points = "+ playerPoints);
+    console.log("computer points = "+ computerPoints);
+
     if (playerPoints == 5 || computerPoints == 5){
+
+        message.classList.add("showMessage");
+
+        winner_score.innerHTML = `${playerPoints}-${computerPoints}`;
+
+        if(computerPoints > playerPoints){
+            winner_title.innerHTML = "Computer Wins";
+        }
+        else{
+            winner_title.innerHTML = "Player Wins";
+        }
+
+        waitClick();
+
+        message.classList.remove("showMessage");
+
+        console.log(continue_game);
         playerPoints = 0;
         computerPoints = 0;
     }
 
 
+}
+
+function continuePlaying(){
+    continue_game = 1;
 }
 
 

@@ -377,9 +377,9 @@ Pop-up
 
 .message{
     position: absolute;
-    top: 50%;
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
     margin: auto;
     z-index: 2;
     width: 60%;
@@ -389,6 +389,16 @@ Pop-up
     border: 5px solid var(--clr-orange-2);
     padding-top: 2rem;
     padding-bottom: 2rem;
+
+    /* hide navbar */
+    transform: translateY(-200%);
+}
+
+.showMessage{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: var(--transition);
 }
 
 .message h2{
@@ -418,8 +428,6 @@ Pop-up
     width: 30%;
     padding: 1rem;
 }
-
-
 
 .answer-yes-btn:active {
     color: green;
