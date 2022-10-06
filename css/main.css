@@ -178,6 +178,7 @@ p {
     padding: 1rem 0;
     width: 100%;
     min-height: 80vh;
+    position: relative;
 }
 
 .section-center{
@@ -365,4 +366,77 @@ Game
         margin-bottom: 0;
     }
 
+}
+
+
+/*
+=================
+Pop-up
+=================
+*/
+
+.message{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    z-index: 2;
+    width: 60%;
+    max-width: 500px;
+    text-align: center;
+    background: #231509;
+    border: 5px solid var(--clr-orange-2);
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.message h2{
+    font-size: 1rem
+}
+
+.message h3 {
+    font-size: 0.7rem;
+    padding-bottom: 1rem
+}
+
+
+.buttons{
+    display: flex;
+    justify-content: space-around;
+}
+
+.answer-btn{
+    display: block;
+    background: var(--clr-orange-5);
+    font-size: 1rem;
+    border: 1px solid var(--clr-orange-5);
+    color: var(--clr-orange-1);
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: var(--transition);
+    width: 30%;
+    padding: 1rem;
+}
+
+
+
+.answer-yes-btn:active {
+    color: green;
+    font-size: 1.5rem;
+}
+
+.answer-no-btn:active {
+    color: red;
+    font-size: 1.5rem;
+}
+
+.answer-yes-btn:hover {
+    color: green;
+    transform: scale(1.2);
+}
+
+.answer-no-btn:hover {
+    color: red;
+    transform: scale(1.2);
 }
