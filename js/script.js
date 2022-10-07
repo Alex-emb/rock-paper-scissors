@@ -1,106 +1,130 @@
+//  OLD SCRIPT
 
-function capitalizeFirstLetter(string) {
-    let stringLower = string.toLowerCase();
-    return stringLower.charAt(0).toUpperCase() + stringLower.slice(1);
-}
+// function capitalizeFirstLetter(string) {
+//     let stringLower = string.toLowerCase();
+//     return stringLower.charAt(0).toUpperCase() + stringLower.slice(1);
+// }
 
 
-function getComputerChoice(){
-    let choices = ['rock','paper','scissors'];
+// function getComputerChoice(){
+//     let choices = ['rock','paper','scissors'];
     
-    let choice = choices[Math.floor(Math.random() * choices.length)];
+//     let choice = choices[Math.floor(Math.random() * choices.length)];
 
-    return choice;
-}
+//     return choice;
+// }
 
-function checkPlayerChoice(choice){
-    if (choice == 'Rock' || choice == 'Paper' || choice == 'Scissors'){
-        return false;
-    }
-    else{
-        return true;
-    }
-}
+// function checkPlayerChoice(choice){
+//     if (choice == 'Rock' || choice == 'Paper' || choice == 'Scissors'){
+//         return false;
+//     }
+//     else{
+//         return true;
+//     }
+// }
 
-function playRound(playerSelection, computerSelection) {
-    let playerSelectionInsensitive = capitalizeFirstLetter(playerSelection);
-    let computerSelectionInsensitive = capitalizeFirstLetter(computerSelection);
+// function playRound(playerSelection, computerSelection) {
+//     let playerSelectionInsensitive = capitalizeFirstLetter(playerSelection);
+//     let computerSelectionInsensitive = capitalizeFirstLetter(computerSelection);
 
-    if(playerSelectionInsensitive == computerSelectionInsensitive){
-        return('It\'s a tie!!!');
-    }
-    else if(playerSelectionInsensitive == 'Rock' && computerSelectionInsensitive == 'Paper'){
-        return(`You lose! ${computerSelectionInsensitive} beats ${playerSelectionInsensitive}`);    
-    }
-    else if(playerSelectionInsensitive == 'Rock' && computerSelectionInsensitive == 'Scissors'){
-        return(`You win! ${playerSelectionInsensitive} beats ${computerSelectionInsensitive}`);    
-    }
-    else if(playerSelectionInsensitive == 'Paper' && computerSelectionInsensitive == 'Rock'){
-        return(`You win! ${playerSelectionInsensitive} beats ${computerSelectionInsensitive}`);    
-    }
-    else if(playerSelectionInsensitive == 'Paper' && computerSelectionInsensitive == 'Scissors'){
-        return(`You lose! ${computerSelectionInsensitive} beats ${playerSelectionInsensitive}`);    
-    }
-    else if(playerSelectionInsensitive == 'Scissors' && computerSelectionInsensitive == 'Rock'){
-        return(`You lose! ${computerSelectionInsensitive} beats ${playerSelectionInsensitive}`);    
-    }
-    else if(playerSelectionInsensitive == 'Scissors' && computerSelectionInsensitive == 'Paper'){
-        return(`You win! ${playerSelectionInsensitive} beats ${computerSelectionInsensitive}`);    
-    }
-}
+//     if(playerSelectionInsensitive == computerSelectionInsensitive){
+//         return('It\'s a tie!!!');
+//     }
+//     else if(playerSelectionInsensitive == 'Rock' && computerSelectionInsensitive == 'Paper'){
+//         return(`You lose! ${computerSelectionInsensitive} beats ${playerSelectionInsensitive}`);    
+//     }
+//     else if(playerSelectionInsensitive == 'Rock' && computerSelectionInsensitive == 'Scissors'){
+//         return(`You win! ${playerSelectionInsensitive} beats ${computerSelectionInsensitive}`);    
+//     }
+//     else if(playerSelectionInsensitive == 'Paper' && computerSelectionInsensitive == 'Rock'){
+//         return(`You win! ${playerSelectionInsensitive} beats ${computerSelectionInsensitive}`);    
+//     }
+//     else if(playerSelectionInsensitive == 'Paper' && computerSelectionInsensitive == 'Scissors'){
+//         return(`You lose! ${computerSelectionInsensitive} beats ${playerSelectionInsensitive}`);    
+//     }
+//     else if(playerSelectionInsensitive == 'Scissors' && computerSelectionInsensitive == 'Rock'){
+//         return(`You lose! ${computerSelectionInsensitive} beats ${playerSelectionInsensitive}`);    
+//     }
+//     else if(playerSelectionInsensitive == 'Scissors' && computerSelectionInsensitive == 'Paper'){
+//         return(`You win! ${playerSelectionInsensitive} beats ${computerSelectionInsensitive}`);    
+//     }
+// }
 
-function game(){
-    let round;
-    let playerChoiceInit;
-    let playerChoice;
-    let computerSelection;
-    let response;
-    let computerWins = 0;
-    let playerWins = 0;
+// function game(){
+//     let round;
+//     let playerChoiceInit;
+//     let playerChoice;
+//     let computerSelection;
+//     let response;
+//     let computerWins = 0;
+//     let playerWins = 0;
 
-    for(round=1; round<=5; round++){
+//     for(round=1; round<=5; round++){
         
-        playerChoiceInit = prompt('Rock, Papper or Scissors');
-        playerChoice = capitalizeFirstLetter(playerChoiceInit);
+//         playerChoiceInit = prompt('Rock, Papper or Scissors');
+//         playerChoice = capitalizeFirstLetter(playerChoiceInit);
 
-        while(checkPlayerChoice(playerChoice)){
-            playerChoiceInit = prompt('Rock, Papper or Scissors\nAcceptable answers are "Rock,Papper or Scissors"');
-            playerChoice = capitalizeFirstLetter(playerChoiceInit);
-        }
-        computerSelection = getComputerChoice();
+//         while(checkPlayerChoice(playerChoice)){
+//             playerChoiceInit = prompt('Rock, Papper or Scissors\nAcceptable answers are "Rock,Papper or Scissors"');
+//             playerChoice = capitalizeFirstLetter(playerChoiceInit);
+//         }
+//         computerSelection = getComputerChoice();
 
-        response = playRound(playerChoice, computerSelection);
+//         response = playRound(playerChoice, computerSelection);
 
-        console.log(response);
+//         console.log(response);
 
-        if(response[4] == 'l'){
-            computerWins++;
-        }
-        else if(response[4] == 'w'){
-            playerWins++;
-        }
-    }
+//         if(response[4] == 'l'){
+//             computerWins++;
+//         }
+//         else if(response[4] == 'w'){
+//             playerWins++;
+//         }
+//     }
 
-    if(computerWins>playerWins){
-        console.log(`COMPUTER WINS WITH ${computerWins} POINTS`);
-    }
-    else if(computerWins<playerWins){
-        console.log(`PLAYER WINS WITH ${playerWins} POINTS`);
-    }
-    else{
-        console.log('It\'s a tie!!!')
-    }
-}
+//     if(computerWins>playerWins){
+//         console.log(`COMPUTER WINS WITH ${computerWins} POINTS`);
+//     }
+//     else if(computerWins<playerWins){
+//         console.log(`PLAYER WINS WITH ${playerWins} POINTS`);
+//     }
+//     else{
+//         console.log('It\'s a tie!!!')
+//     }
+// }
 
 // game();
 
 
 
 
+
+
+
 ///////////////////////////////////////////////////
+////////////// NEW SCRIPT /////////////////////////
 ///////////////////////////////////////////////////
 
+function getComputerChoice(){
+    let choices = ['rock','paper','scissors'];
+    let choice = choices[Math.floor(Math.random() * choices.length)];
+
+    return choice;
+}
+
 function gameRound(playerSelection, computerSelection) {
+    /* 
+    inputs:
+    -------
+    playerSelection : rock, paper or scissors
+    computerSelection : rock, paper or scissors
+
+    returns:
+    -------
+    0 --> tie
+    1 --> player wins
+    2 --> computer wins
+    */ 
 
     if(playerSelection == computerSelection){
         return 0;
@@ -125,55 +149,24 @@ function gameRound(playerSelection, computerSelection) {
     }
 }
 
-var playerPoints = 0;
-var computerPoints = 0;
-
-var previousComputerChoice  = document.getElementById("rockComputer");
-var message = document.getElementById("floatMessage");
-var winner_score = document.getElementById("score-title");
-var winner_title = document.getElementById("winner-title");
-
-var continue_game = 0;
-
-const restart = document.querySelector('.answer-yes-btn')
-const stop = document.querySelector('.answer-no-btn')
-
-const promise = new Promise((resolve, reject) => {
-    restart.addEventListener('click', resolve)
-    stop.addEventListener('click', reject)
-})
-
-function onRestart () {
-    continue_game = 1;
-}
-
-function onStop () {
-    continue_game = 2;
-}
-
-async function waitClick () {
-    return await promise
-        .then((ev) => {
-            onRestart ()
-        })
-    .catch(() => onStop())
+function handler(pressedBtn){
+    playerChoiceFunction(pressedBtn.target.id);
 }
 
 
 function playerChoiceFunction(playerChoice){
-    let computerChoice = getComputerChoice();
+    let computerChoice = getComputerChoice(); // choose randomly for computer choice
     let rockBtn;
     let paperBtn;
     let scissorsBtn;
     let winner;
-
-    console.log(playerChoice.id);
 
 
     //return to white before styling again
     previousComputerChoice.style.borderColor = "var(--clr-white)";
     previousComputerChoice.style.color = "var(--clr-white)";
 
+    //assing the current choice to previous choice for redecorating the computers choice
     if (computerChoice == 'rock'){
         rockBtn = document.getElementById("rockComputer");
         rockBtn.style.borderColor = "var(--clr-orange-6)";
@@ -196,7 +189,8 @@ function playerChoiceFunction(playerChoice){
         previousComputerChoice = scissorsBtn;
     }
 
-    winner = gameRound(playerChoice.id, computerChoice);
+    //select winner
+    winner = gameRound(playerChoice, computerChoice);
 
     if (winner == 1){
         playerPoints = playerPoints + 1;
@@ -207,9 +201,7 @@ function playerChoiceFunction(playerChoice){
         document.getElementById("computer-score").innerHTML = computerPoints.toString();
     }
 
-    console.log("player points = "+ playerPoints);
-    console.log("computer points = "+ computerPoints);
-
+    //check if game is over
     if (playerPoints == 5 || computerPoints == 5){
 
         message.classList.add("showMessage");
@@ -223,20 +215,44 @@ function playerChoiceFunction(playerChoice){
             winner_title.innerHTML = "Player Wins";
         }
 
-        waitClick();
+        //make player buttons useless
+        player_btn.forEach( button => {button.removeEventListener('click',handler)});
 
-        message.classList.remove("showMessage");
-
-        console.log(continue_game);
         playerPoints = 0;
         computerPoints = 0;
     }
-
-
 }
 
-function continuePlaying(){
-    continue_game = 1;
-}
+
+var playerPoints = 0;  //global variable for player's points
+var computerPoints = 0; // global variable for computer's points
+var previousComputerChoice  = document.getElementById("rockComputer"); // initial computer choice
+
+var message = document.getElementById("floatMessage");   //floating window for winner message
+var winner_score = document.getElementById("score-title"); //score to be displayed inside floating window
+var winner_title = document.getElementById("winner-title"); //title to be displayed inside floating window
+
+// BUTTONS 
+const player_btn = document.querySelectorAll('.btn-player');  //all player buttons (rock,paper,scissors)
+const resetBtn = document.querySelectorAll('.answer-yes-btn'); //play-again-button inside floating window
+const stopBtn = document.querySelectorAll('.answer-no-btn');   //no-more-play-button inside floating window
+
+
+//refresh page for new game
+resetBtn[0].addEventListener('click',() => location.reload());
+
+//if you do not want to play again the floating 
+//window disappears
+stopBtn[0].addEventListener('click',function(){
+        message.classList.remove("showMessage");
+    }
+);
+
+//Event listener for when player makes a move
+player_btn.forEach( button => {
+    button.addEventListener('click',handler);
+});
+
+
 
 

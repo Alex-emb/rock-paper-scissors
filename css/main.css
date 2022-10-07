@@ -407,7 +407,11 @@ Pop-up
 
 .message h3 {
     font-size: 0.7rem;
-    padding-bottom: 1rem
+    padding-bottom: 1rem;
+}
+
+.play-again{
+    text-decoration: underline;
 }
 
 
